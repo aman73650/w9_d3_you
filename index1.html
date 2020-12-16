@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .heading{
+            background-color: rgb(87, 72, 151);
+            height: 150px;
+            font-size: 50px;
+            text-align: center;
+        }
+        .topic{
+            
+            background-color: black;
+            color: white;
+            padding-left: 40%;
+            font-size: 40px;
+            padding-bottom: 20px;
+        }
+        .topic>ul{
+            font-size: 22px;
+        }
+        .explain{
+            background-color: rgb(190, 238, 17);
+            padding-left: 10%;
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>OOPs</h1>
+    </div>
+    <div class="topic">
+        <h2>Topic Name</h2>
+        <ul>
+           <li>Encapsulation</li>
+           <li>Abstraction</li>
+           <li>Inheritance</li>
+           <li>Polymorphism</li>
+        </ul>
+    </div>
+    <div class="explain">
+        <h2>Encapsulation</h2>
+        <p>Encapsulation is basically the procedure in<br> which we group the related data items and<br>
+           the functions operation on them together. This<br> allows us the ability that the private variables<br>
+           are visible only in the cuurent function and<br>
+           cannot be accessed by other function or global scope.<br> 
+        </p>
+        <h3>For Example:-</h3>
+        <p>
+            <code>
+                const person = function(name,age){<br>
+                    let name = name;<br>
+                    let age  = age;<br>
+
+                    return {<br>
+                        description:function(){<br>
+                            console.log(`My name is ${name} and age is ${age}`);<br>
+                        }<br>
+                    }<br>
+                }<br>
+                const myself = new person("sachin",22);<br>
+                myself.description();<br>
+                //My name is sachin and age is 22<br>
+            </code>
+        </p>
+    </div>
+    <hr>
+    <div class="explain">
+        <h2>Abstraction</h2>
+        <p>Abstraction is basically a way of creating simple<br>
+            models outs of complex models by including only the <br>
+            important properties which are needed to build the <br>
+            model.<br>
+            Therefore the main idea of abstraction is to define <br>
+            real-lifr components in various data type hich are <br>
+            available.<br>
+        </p>
+        <h3>For Example:-</h3>
+        <p>
+            <code>
+               function person(name, age, email, height, weight){<br>
+                  this.name = name;<br>
+                  this.age = age;<br>
+                  this.email = email;<br>
+                  this.height = height;<br>
+                  this.weight = weight;<br>
+               }<br>
+               const binod = new person("sachin", 22, "sachinchourasiya.c.123@gmail.com",174,64);<br>
+            </code>
+        </p>
+    </div>
+    <hr>
+    <div class="explain">
+        <h2>Inheritance</h2>
+        <p>Inheritance is basically the way through <br>
+            which we share common functionalities <br>
+            among classes. So in other ways, it gives <br>
+            the power to avoid code duplication in a<br>
+            class, by borrowing the functionalities from <br>
+            the other class which prossesses those<br>
+            functionalities.<br>
+        </p>
+        <h3>For Example:-</h3>
+        <p>
+            <code>
+               const arr = ["C" , "C++" , "Java" , "Javascript"];<br>
+               //points to array prototype<br>
+               arr._proto_<br>
+
+               //points to object prototype<br>
+               arr._proto.proto_<br>
+
+               //Array.prototype inherits it's properties<br>
+               //from object =.prototype<br>
+            </code>
+        </p>
+    </div>
+    <hr>
+    <div class="explain">
+        <h2>Polymorphism</h2>
+        <p>Polymorphism is the technique through which we can <br>
+            substitute classes that have common functionality in<br>
+            terms of their properties and methods.            
+        </p>
+        <h3>For Example:-</h3>
+        <p>
+            <code>
+               function Animal(sound){<br>
+                   this.sound = sound;<br>
+                   this.speak=function(){<br>
+                        return this.sound; <br>
+                   }<br>
+               }<br>
+               function showInfo(obj){<br>
+                    console.log(obj.speak());<br>
+
+               }<br>
+               //different object<br>
+               var dog =new Animal("woof");<br>
+               var cat =new Animal("meow");<br>
+
+               //responds different ways<br>
+               showInfo(dog);<br>
+               showInfo(cat);<br>
+            </code>
+        </p>
+    </div>
+    <hr>
+    <div class="heading">
+        <h1>classes</h1>
+    </div>
+    <div class="topic">
+        <h2>Topic Name</h2>
+        <ul>
+           <li>Inheritance</li>
+           <li>Super</li>
+           <li>Getters</li>
+           <li>Setters</li>
+        </ul>
+    </div>
+    <div class="explain">
+        <h2>Inheritance</h2>
+        <p>
+            Javascript classes supports inheritance<br>
+            which means we can borrow properties<br>
+            and methods from other classes.<br>
+        </p>
+        <h3>For Example:-</h3>
+        <p>
+            <code>
+                class Animal {<br>
+                    constructor(name){<br>
+                        this.speed = 0;<br>
+                        this.name =name;<br>
+                    }<br>
+                    run(speed){<br>
+                        this.speed = speed;<br>
+                        console.log(`${this.name} runs with a speed of ${this.speed} `);<br>
+                    }<br>
+                    stop(){<br>
+                        this.speed = 0;<br>
+                        console.log(`${this.name} stands still`);<br>
+                    }    <br>
+                }<br>
+                class Cat extends Animal{<br>
+                    hide(){<br>
+                        console.log(`${this.name} hides!`)<br>
+                    }<br>
+                }<br>
+                let cheetah = new Cat('Cheetah');<br>
+
+                cheetah.run(100);//Cheetah runs with a speed of 100<br>
+                cheetah.hide();//cheetah hides<br>
+            </code>
+        </p>
+    </div>
+    <hr>
+    <div class="explain">
+        <h2>Super</h2>
+        <p> 
+            The Super keyword is used to access and<br>
+            call function which are present in the <br>
+            parent's object.<br>
+        </p>
+        <h3>For Example:-</h3>
+        <p>
+            <code>
+               class Car {<br>
+                   constructor(brand){<br>
+                       this.carname = brand;<br>
+                   }<br>
+                   present(){<br>
+                       return "i have a"+this.carname;<br>
+                   }<br>
+               }<br>
+               class Model extends Car {<br>
+                   constructor(brand , mod){<br>
+                       super(brand);<br>
+                       this.model=mod;<br>
+                   }<br>
+                   show(){<br>
+                       return this.present()+", it is from"+ this.model;<br>
+                   }<br>
+               }<br>
+
+               mycar = new Model("Maruti 800","2004");<br>
+               mycar.show()//i have maruti 800, it is from 2004<br>
+            </code>
+        </p>
+    </div>
+    <hr>
+    <div class="explain">
+        <h2>Getters</h2>
+        <h3>For Example:-</h3>
+        <p>
+            <code>
+                class Rectangle{
+                    constructor(length,breadth){<br>
+                       this.length = length;<br>
+                       this.breadth = breadth;<br>
+                    }<br>
+                    get Area(){<br>
+                        console.log("Area :" + this.length*this.breadth);<br>
+                    }<br>
+                    get Perimeter(){<br>
+                        console.log("Perimeter :"+2*(this.length+this.breadth));<br>
+                    }<br>
+                }<br>
+                const r1 = new Rectangle(8,13);<br>
+                console.log(r1.length,r1.breadth);<br>
+            </code>
+        </p>
+    </div>
+    <hr>
+    <div class="explain">
+        <h2>Setters</h2>
+        <h3>
+            For Example:-
+        </h3>
+        <p>
+            <code>
+                class Rectangle{<br>
+                    constructor(length,breadth){<br>
+                       this.length = length;<br>
+                       this.breadth = breadth;<br>
+                    }<br>
+                    get Area(){<br>
+                        console.log("Area :" + this.length*this.breadth);<br>
+                    }<br>
+                    set side(area){<br>
+                        this.length = Math.sqrt(area);<br>
+                        this.breadth = Math.sqrt(area);<br>
+                    }<br>
+                }<br>
+                const s1 = new Square(10);<br>
+                s1.area;<br>
+            </code>
+        </p>
+    </div>
+
+</body>
+</html>
